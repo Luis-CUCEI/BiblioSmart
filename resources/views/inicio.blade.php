@@ -166,8 +166,8 @@
                         la Biblioteca de CUCEI. <br><br> Ademas este espacio te permitira: </p>
                     <p> <img src="{{ asset('img/index/core-img/check.png') }}"> Administrar tus libros. </p>
                     <p> <img src="{{ asset('img/index/core-img/check.png') }}"> Informacion detellada de los libros.</p>
-                    <p> <a href="{{ url('#') }}" class="btn musica-btn">ENTRAR</a> O ¿Eres nuevo? entonces
-                        <a href="{{ url('#') }}" class="btn musica-btn">Registrate</a> </p>
+                    <p> <a href="{{ route('login') }}" class="btn musica-btn">ENTRAR</a> O ¿Eres nuevo? entonces
+                        <a href="{{ route('register') }}" class="btn musica-btn">Registrate</a> </p>
                 </div>
             </div>
         </div>

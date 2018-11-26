@@ -3,83 +3,69 @@
 namespace App\Http\Controllers;
 
 use App\Division;
+use App\Degree;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\AssignOp\Div;
 
 class DivisionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     public function index()
     {
-        //
+        $divisions = Division::all();
+        return view('division.indexDivision', compact('divisions'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('division.formDivision');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+        $rules = [
+          'name' => 'required|min:5'
+        ];
+
+        $messages = [
+          'name.required' => 'Agrega el nombre de la division para continuar.',
+        ];
+
+        $this->validate($request, $rules, $messages);
+
+        Division::create($request->all());
+        return redirect()->route('divisions.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Division  $division
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Division $division)
     {
-        //
+        $degrees = Degree::all();
+        return view('division.showDivision')->with(['division'=> $division, 'degrees' => $degrees]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Division  $division
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Division $division)
     {
-        //
+        return view('division.formDivision', compact('division'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Division  $division
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, Division $division)
     {
-        //
+        Division::where('id', $division->id)->update($request->except('_token', '_method', 'token'));
+        return redirect()->route('divisions.show', $division->id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Division  $division
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Division $division)
     {
-        //
+        $division->delete();
+        return redirect()->route('divisions.index');
     }
 }

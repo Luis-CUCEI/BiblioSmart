@@ -107,5 +107,6 @@
 
 <!-- Examples -->
 <script src="{{ asset('assets/javascripts/dashboard/examples.dashboard.js') }}"></script>
+<script src="{{ asset('assets/javascripts/ui-elements/examples.notifications.js') }}"></script>
 </body>
 </html>

@@ -18,4 +18,15 @@
         </div>
     </header>
 
+    <div class="row">
+        <div class="col-md-6 col-lg-12 col-xl-6">
+            <div class="panel-body">
+                <div class="row" align="center">
+                    <h2>Bienvenid@ a BliblioSmart CUCEI</h2>
+                    <p> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 @endsection
