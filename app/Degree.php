@@ -10,5 +10,9 @@ class Degree extends Model
         return $this->belongsTo('App\Division');
     }
 
+    public function books(){
+        return $this->hasMany('App\Book');
+    }
+
     protected $fillable = ['career', 'division_id',];
 }

@@ -10,5 +10,9 @@ class Division extends Model
         return $this->hasMany('App\Degree');
     }
 
+    public function books(){
+        return $this->hasMany('App\Book');
+    }
+
     protected $fillable = ['name',];
 }

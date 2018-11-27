@@ -50,11 +50,11 @@
                             'placeholder'=>'Ingresa nombre de la materia.']) !!}
                         </div>
                         <div>
-                            <input type="hidden" name="token" value="666">
+                            {!! Form::token() !!}
                             @if(isset($division))
-                                <input class="btn btn-warning" type="submit" value="Actualizar Division">
+                                {!! Form::submit('Actualizar Division', ['class'=>'btn btn-warning']) !!}
                             @else
-                                <input class="btn btn-success" type="submit" value="Registrar Division">
+                                {!! Form::submit('Registrar Division', ['class'=>'btn btn-success']) !!}
                             @endif
                         </div>
                     </div>

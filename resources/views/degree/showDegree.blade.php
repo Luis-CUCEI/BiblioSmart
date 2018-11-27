@@ -1,9 +1,8 @@
 @extends('layouts.theme')
 @section('content')
 
-
     <header class="page-header">
-        <h2>Divisiones</h2>
+        <h2>Carreras</h2>
 
         <div class="right-wrapper pull-right">
             <ol class="breadcrumbs">
@@ -12,7 +11,7 @@
                         <i class="fa fa-home"></i>
                     </a>
                 </li>
-                <li><span>Dashboard / Divisiones / Mostrar / {{$degree->id}}</span></li>
+                <li><span>Dashboard / Carreras / Mostrar / {{$degree->id}}</span></li>
             </ol>
 
             <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>

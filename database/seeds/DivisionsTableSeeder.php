@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class DivisionsTableSeeder extends Seeder
 {
@@ -13,14 +14,17 @@ class DivisionsTableSeeder extends Seeder
     {
         DB::table('divisions')->insert([
             'name' => 'Division de Ciencias Basicas',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         DB::table('divisions')->insert([
             'name' => 'Division de Ingenierias',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         DB::table('divisions')->insert([
             'name' => 'Division de Electronia y Computacion',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
     }
 }

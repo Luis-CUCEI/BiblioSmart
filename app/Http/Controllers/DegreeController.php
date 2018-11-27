@@ -70,7 +70,7 @@ class DegreeController extends Controller
 
         Degree::where('id', $degree->id)->update($request->except('_token', '_method'));
 
-        return redirect()->route('degrees.index');
+        return redirect()->route('degrees.show', $degree->id);
     }
 
     public function destroy(Degree $degree)

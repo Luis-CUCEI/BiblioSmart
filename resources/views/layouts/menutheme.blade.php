@@ -82,7 +82,18 @@
                             <span>Libros</span>
                         </a>
                         <ul class="nav nav-children">
-
+                            <li>
+                                <a href="{{ route('books.index')  }}">
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                    Ver
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('books.create') }}">
+                                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                    Agregar
+                                </a>
+                            </li>
                         </ul>
                     </li>
 

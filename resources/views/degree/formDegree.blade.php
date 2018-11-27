@@ -2,7 +2,7 @@
 @section('content')
 
     <header class="page-header">
-        <h2>Divisiones</h2>
+        <h2>Carreras</h2>
 
         <div class="right-wrapper pull-right">
             <ol class="breadcrumbs">
