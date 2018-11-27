@@ -12,9 +12,9 @@
                     </a>
                 </li>
                 @if(isset($division))
-                    <li><span>Dashboard / Divisiones / Registro</span></li>
-                @else
                     <li><span>Dashboard / Divisiones / Editar</span></li>
+                @else
+                    <li><span>Dashboard / Divisiones / Registro</span></li>
                 @endif
             </ol>
 

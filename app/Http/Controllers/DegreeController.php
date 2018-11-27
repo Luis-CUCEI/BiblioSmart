@@ -3,83 +3,79 @@
 namespace App\Http\Controllers;
 
 use App\Degree;
+use App\Division;
 use Illuminate\Http\Request;
 
 class DegreeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        $degrees = Degree::all();
+        return view('degree.indexDegree', compact('degrees'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $divisions = Division::All()->pluck('name', 'id')->toArray();
+        return view('degree.formDegree')->with(['divisions'=>$divisions]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $rules = [
+            'career' => 'required|min:5',
+            'division_id' => 'required|',
+        ];
+
+        $messages = [
+          'career.required' => 'Agrega nombre a la carrera para continuar',
+          'division_id.required' => 'Selecciona una division para continuar',
+        ];
+
+        $this->validate($request, $rules, $messages);
+
+        Degree::create($request->all());
+        return redirect()->route('degrees.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Degree  $degree
-     * @return \Illuminate\Http\Response
-     */
     public function show(Degree $degree)
     {
-        //
+        return view('degree.showDegree')->with(['degree'=> $degree,]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Degree  $degree
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Degree $degree)
     {
-        //
+        $divisions = Division::All()->pluck('name', 'id')->toArray();
+        return view('degree.formDegree')->with(['degree'=>$degree, 'divisions'=>$divisions]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Degree  $degree
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Degree $degree)
     {
-        //
+        $rules = [
+            'career' => 'required|min:5',
+            'division_id' => 'required|',
+        ];
+
+        $messages = [
+            'career.required' => 'Agrega nombre a la carrera para continuar',
+            'division_id.required' => 'Selecciona una division para continuar',
+        ];
+
+        $this->validate($request, $rules, $messages);
+
+        Degree::where('id', $degree->id)->update($request->except('_token', '_method'));
+
+        return redirect()->route('degrees.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Degree  $degree
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Degree $degree)
     {
-        //
+        $degree->delete();
+        return redirect()->route('degrees.index');
     }
 }

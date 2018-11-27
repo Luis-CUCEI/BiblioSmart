@@ -31,7 +31,7 @@ class DivisionController extends Controller
     public function store(Request $request)
     {
         $rules = [
-          'name' => 'required|min:5'
+          'name' => 'required|min:5',
         ];
 
         $messages = [
@@ -47,11 +47,11 @@ class DivisionController extends Controller
 
     public function show(Division $division)
     {
-        $degrees = Degree::all();
-        return view('division.showDivision')->with(['division'=> $division, 'degrees' => $degrees]);
+        return view('division.showDivision')->with(['division'=> $division,]);
     }
 
     public function edit(Division $division)
+
     {
         return view('division.formDivision', compact('division'));
     }
@@ -59,6 +59,17 @@ class DivisionController extends Controller
 
     public function update(Request $request, Division $division)
     {
+
+        $rules = [
+            'name' => 'required|min:5',
+        ];
+
+        $messages = [
+            'name.required' => 'Agrega el nombre de la division para continuar.',
+        ];
+
+        $this->validate($request, $rules, $messages);
+
         Division::where('id', $division->id)->update($request->except('_token', '_method', 'token'));
         return redirect()->route('divisions.show', $division->id);
     }

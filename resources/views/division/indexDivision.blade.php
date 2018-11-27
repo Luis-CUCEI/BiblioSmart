@@ -39,7 +39,7 @@
                             <th>ID</th>
                             <th>Nombre</th>
                             <th>Fecha de Registro</th>
-                            <th>Actions</th>
+                            <th>Actiones</th>
                         </tr>
                         </thead>
                         <tbody>

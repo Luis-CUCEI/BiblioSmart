@@ -10,4 +10,5 @@ Route::get('dashboard', 'UserController@index')->name('dashboard');
 
 
 Route::resource('divisions', 'DivisionController');
+Route::resource('degrees', 'DegreeController');
 

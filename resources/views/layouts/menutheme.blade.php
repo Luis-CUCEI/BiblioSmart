@@ -28,7 +28,12 @@
                             <span>Estudiantes</span>
                         </a>
                         <ul class="nav nav-children">
+                            <li>
 
+                            </li>
+                            <li>
+
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-parent">
@@ -57,7 +62,18 @@
                             <span>Carreras</span>
                         </a>
                         <ul class="nav nav-children">
-
+                            <li>
+                                <a href="{{ route('degrees.index')  }}">
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                    Ver
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('degrees.create') }}">
+                                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                    Agregar
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-parent">
