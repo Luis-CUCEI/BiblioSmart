@@ -29,10 +29,16 @@
                         </a>
                         <ul class="nav nav-children">
                             <li>
-
+                                <a href="{{ route('students.index')  }}">
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                    Ver
+                                </a>
                             </li>
                             <li>
-
+                                <a href="{{ route('students.create') }}">
+                                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                    Agregar
+                                </a>
                             </li>
                         </ul>
                     </li>

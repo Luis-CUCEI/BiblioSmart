@@ -2,84 +2,99 @@
 
 namespace App\Http\Controllers;
 
+use App\Book;
 use App\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        $students = Student::all();
+        return view('student.indexStudent', compact('students'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('student.formStudent');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $rules =[
+            'fisrtname' => 'required|',
+            'lastname' => 'required|',
+            'password' => 'required|',
+            'email' => "required|unique:students,email,$request->id",
+            'alumnocode' => "required|unique:students,alumnocode,$request->id",
+            'phonenumber' => "unique:students,phonenumber,$request->id",
+            'gender' => 'required|',
+        ];
+
+        $messages = [
+            'fisrtname.required' => 'Agrega nombre para continuar',
+            'lastname.required' => 'Agrega Apellido para continuar',
+            'password.required' => 'Agrega Contraseña para continuar',
+            'email.required' => 'Agrega Correo para continuar',
+            'email.unique' => 'El Correo ya existe, intente con uno nuevo',
+            'alumnocode.required' => 'Agrega Codigo para continuar',
+            'alumnocode.unique' => 'El cogido de alumno ya existe, intente con uno nuevo',
+            'phonenumber.unique' => 'El numero de telefono ya existe intente con uno nuevo',
+            'gender.required' => 'Agregar Genero para continuar',
+        ];
+
+        $this->validate($request, $rules, $messages);
+
+        Student::create($request->all());
+        return redirect()->route('students.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Student  $student
-     * @return \Illuminate\Http\Response
-     */
     public function show(Student $student)
     {
-        //
+        return view('student.showStudent')->with(['student'=>$student]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Student  $student
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Student $student)
     {
-        //
+        return view('student.formStudent')->with(['student'=>$student]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Student  $student
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Student $student)
     {
-        //
+        $rules =[
+            'fisrtname' => 'required|',
+            'lastname' => 'required|',
+            'email' => "required|unique:students,email,$student->id",
+            'alumnocode' => "required|unique:students,alumnocode,$student->id",
+            'phonenumber' => "unique:students,phonenumber,$student->id",
+            'gender' => 'required|',
+        ];
+
+        $messages = [
+            'fisrtname.required' => 'Agrega nombre para continuar',
+            'email.required' => 'Agrega Correo para continuar',
+            'email.unique' => 'El Correo ya existe, intente con uno nuevo',
+            'alumnocode.required' => 'Agrega Codigo para continuar',
+            'alumnocode.unique' => 'El cogido de alumno ya existe, intente con uno nuevo',
+            'phonenumber.unique' => 'El numero de telefono ya existe intente con uno nuevo',
+            'gender.required' => 'Agregar Genero para continuar',
+        ];
+
+        $this->validate($request, $rules, $messages);
+
+        Student::where('id', $student->id)->update($request->except('_token', '_method'));
+
+        return redirect()->route('students.show', $student->id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Student  $student
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Student $student)
     {
-        //
+        $student->delete();
+        return redirect()->route('students.index');
     }
 }
