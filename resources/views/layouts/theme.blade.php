@@ -129,5 +129,9 @@
     }
     @endif
 </script>
+
+@section('js')
+@show
+
 </body>
 </html>

@@ -30,7 +30,7 @@
                 <div class="panel-body">
                     @if($books->count() > 0)
                         <div class="table-responsive">
-                            <table class="table table-hover mb-none">
+                            <table class="table table-hover mb-none" id="books">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
@@ -46,12 +46,7 @@
                                 @foreach($books as $book)
                                     <tr>
                                         <td>
-                                            <a href="{{ route('books.show', $book->id) }}">
-                                                <button type="button" class="mb-xs mt-xs mr-xs btn btn-default btn-sm">
-                                                    <i class="fa fa-info"></i>
-                                                    - {{ $book->id }}
-                                                </button>
-                                            </a>
+                                            <a class="btn btn-sm btn-default" href="{{ route('books.show', $book->id) }}">{{ $book->id }}</a>
                                         </td>
                                         <td>{{ $book->tittle }}</td>
                                         <td>{{ $book->division->name }}</td>
@@ -95,3 +90,14 @@
     </div>
 
 @endsection
+
+@section('js')
+    <link rel="stylesheet" type="text/css" href="{{ asset('js/datatable/datatables.min') }}"/>
+    <script type="text/javascript" src="{{asset('js/datatable/datatables.min.js')}}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#books').DataTable();
+        });
+    </script>
+@stop
