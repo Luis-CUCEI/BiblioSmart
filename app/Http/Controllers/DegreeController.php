@@ -15,7 +15,7 @@ class DegreeController extends Controller
 
     public function index()
     {
-        $degrees = Degree::all();
+        $degrees = Degree::with('division')->get();
         return view('degree.indexDegree', compact('degrees'));
     }
 

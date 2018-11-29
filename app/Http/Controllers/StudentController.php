@@ -122,6 +122,11 @@ class StudentController extends Controller
         $book = Book::find($request->book_id);
         $book->students()->attach($request->student_id, ['school_cycle' => $request->school_cycle, 'delivery_at' => $request->delivery_at, 'delivery'=>0, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()]);
 
-        return redirect()->route('students.show', $request->student_id);
+        $notificacion = array(
+            'message' => ' El estudiante a agregado un libro correctamente.',
+            'alert-type' => 'info'
+        );
+
+        return redirect()->route('students.show', $request->student_id)->with($notificacion);
     }
 }
