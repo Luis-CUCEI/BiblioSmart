@@ -11,7 +11,11 @@
                         <i class="fa fa-home"></i>
                     </a>
                 </li>
-                <li><span>Dashboard / Carreras / Mostrar</span></li>
+                @if(isset($tdegrees))
+                    <li><span>Dashboard / Carreras / Basura</span></li>
+                @else
+                    <li><span>Dashboard / Carreras / Mostrar</span></li>
+                @endif
             </ol>
 
             <a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
@@ -28,7 +32,7 @@
                     </div>
                 </header>
                 <div class="panel-body">
-                    @if($degrees->count() > 0)
+                    @if(isset($degrees) || isset($tdegrees))
                         <div class="table-responsive">
                             <table class="table table-hover mb-none" id="degrees">
                                 <thead>
@@ -41,46 +45,83 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($degrees as $degree)
-                                    <tr>
-                                        <td>
-                                            <a class="btn btn-sm btn-default" href="{{ route('degrees.show', $degree->id) }}">{{ $degree->id }}</a>
-                                        </td>
-                                        <td>{{ $degree->career }}</td>
-                                        <td>{{ $degree->division->name }}</td>
-                                        <td>{{ $degree->created_at }}</td>
-                                        <td class="actions-hover actions-fade">
-                                            <a>
-                                                <form action="{{ route('degrees.destroy', $degree->id) }}"
-                                                      method="POST">
-                                                    {{ csrf_field() }}
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                    <button type="submit"
-                                                            class="mb-xs mt-xs mr-xs btn btn-danger btn-xs"><i
-                                                                class="fa fa-trash-o"></i>Eliminar
-                                                    </button>
-                                                </form>
-                                            </a>
+                                @if(isset($tdegrees))
+                                    @foreach($tdegrees as $degree)
+                                        <tr>
+                                            <td>{{ $degree->id }}</td>
+                                            <td>{{ $degree->career }}</td>
+                                            <td>{{ $degree->division->name }}</td>
+                                            <td>{{ $degree->created_at }}</td>
+                                            <td class="actions-hover actions-fade">
+                                                <a>
+                                                    <form action="{{ route('degrees.retrieve') }}"
+                                                          method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="id" value="{{$degree->id}}">
+                                                        <button type="submit"
+                                                                class="mb-xs mt-xs mr-xs btn btn-success btn-xs"><i
+                                                                    class="fa fa-refresh"></i> Recuperar
+                                                        </button>
+                                                    </form>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @else
+                                    @foreach($degrees as $degree)
+                                        <tr>
+                                            <td>
+                                                <a class="btn btn-sm btn-default"
+                                                   href="{{ route('degrees.show', $degree->id) }}">{{ $degree->id }}</a>
+                                            </td>
+                                            <td>{{ $degree->career }}</td>
+                                            <td>{{ $degree->division->name }}</td>
+                                            <td>{{ $degree->created_at }}</td>
+                                            <td class="actions-hover actions-fade">
+                                                <a>
+                                                    <form action="{{ route('degrees.destroy', $degree->id) }}"
+                                                          method="POST">
+                                                        {{ csrf_field() }}
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <button type="submit"
+                                                                class="mb-xs mt-xs mr-xs btn btn-danger btn-xs"><i
+                                                                    class="fa fa-trash-o"></i> Eliminar
+                                                        </button>
+                                                    </form>
+                                                </a>
 
-                                            <a href="{{ route('degrees.edit', $degree->id) }}">
-                                                <button type="button" class="mb-xs mt-xs mr-xs btn btn-warning btn-xs">
-                                                    <i
-                                                            class="fa fa-pencil"></i>Editar
-                                                </button>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                                <a href="{{ route('degrees.edit', $degree->id) }}">
+                                                    <button type="button"
+                                                            class="mb-xs mt-xs mr-xs btn btn-warning btn-xs">
+                                                        <i
+                                                                class="fa fa-pencil"></i> Editar
+                                                    </button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endif
                                 </tbody>
                             </table>
                         </div>
                     @else
-                        <div class="alert alert-dark">
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                            <strong>Sin Carreras</strong> Por favor, agrega algunas para continuar! <a
-                                    href="{{ route('degrees.create') }}" class="alert-link"> Agregar Carreras o pulsa la
-                                cruz que se encuentra arriba</a>.
-                        </div>
+                        @if(isset($degrees))
+                            <div class="alert alert-dark">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <strong>Sin Carreras</strong> Por favor, agrega algunas para continuar! <a
+                                        href="{{ route('degrees.create') }}" class="alert-link"> Agregar Carreras o
+                                    pulsa la
+                                    cruz que se encuentra arriba</a>.
+                            </div>
+                        @else
+                            <div class="alert alert-dark">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                <strong>Sin Carreras</strong> Por favor, borra algunas para continuar! <a
+                                        href="{{ route('degrees.create') }}" class="alert-link"> Agregar Carreras o
+                                    pulsa la
+                                    cruz que se encuentra arriba</a>.
+                            </div>
+                        @endif
                     @endif
                 </div>
             </section>

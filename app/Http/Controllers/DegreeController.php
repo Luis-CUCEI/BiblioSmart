@@ -96,4 +96,23 @@ class DegreeController extends Controller
 
         return redirect()->route('degrees.index')->with($notificacion);
     }
+
+    public function trash()
+    {
+        $tdegrees = Degree::onlyTrashed()->get();
+
+        return view('degree.indexDegree', compact('tdegrees'));
+    }
+
+    public function retrieve(Request $request)
+    {
+        Degree::onlyTrashed()->find($request->id)->restore();
+
+        $notificacion = array(
+            'message' => 'La Carerra a sido recuperada correctamente.',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('degrees.index')->with($notificacion);
+    }
 }

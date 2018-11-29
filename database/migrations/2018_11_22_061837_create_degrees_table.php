@@ -17,6 +17,7 @@ class CreateDegreesTable extends Migration
             $table->increments('id');
             $table->string('career', 128);
             $table->unsignedInteger('division_id');
+            $table->softDeletes();
 
             $table->foreign('division_id')
                 ->references('id')

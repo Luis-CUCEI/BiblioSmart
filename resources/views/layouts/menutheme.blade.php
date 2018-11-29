@@ -80,6 +80,12 @@
                                     Agregar
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('degrees.trash') }}">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    Basura
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-parent">

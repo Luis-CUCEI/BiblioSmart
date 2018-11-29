@@ -7,6 +7,9 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 Route::get('dashboard', 'UserController@index')->name('dashboard');
+Route::get('degree/trash', 'DegreeController@trash')->name('degrees.trash');
+Route::post('degree/retrieve', 'DegreeController@retrieve')->name('degrees.retrieve');
+
 
 
 Route::resource('divisions', 'DivisionController');
