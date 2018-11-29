@@ -27,7 +27,7 @@ class BookController extends Controller
         $divisions = Division::all()->pluck('name', 'id')->toArray();
         $degrees = Degree::all()->pluck('career', 'id')->toArray();
 
-        return view('book.formBook')->with(['divisions'=>$divisions, 'degrees'=>$degrees]);
+        return view('book.formBook')->with(['divisions' => $divisions, 'degrees' => $degrees]);
 
     }
 
@@ -61,7 +61,12 @@ class BookController extends Controller
 
         Book::create($request->all());
 
-        return redirect()->route('books.index');
+        $notificacion = array(
+            'message' => 'Gracias! El libro a sido creado correctamente.',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('books.index')->with($notificacion);
     }
 
     public function show(Book $book)
@@ -69,14 +74,14 @@ class BookController extends Controller
         $divisions = Division::all()->pluck('name', 'id')->toArray();
         $degrees = Degree::all()->pluck('career', 'id')->toArray();
 
-        return view('book.showBook')->with(['book'=>$book, 'divisions'=>$divisions, 'degrees'=>$degrees]);
+        return view('book.showBook')->with(['book' => $book, 'divisions' => $divisions, 'degrees' => $degrees]);
     }
 
     public function edit(Book $book)
     {
         $divisions = Division::all()->pluck('name', 'id')->toArray();
         $degrees = Degree::all()->pluck('career', 'id')->toArray();
-        return view('book.formBook')->with(['book'=>$book, 'divisions'=>$divisions, 'degrees'=>$degrees]);
+        return view('book.formBook')->with(['book' => $book, 'divisions' => $divisions, 'degrees' => $degrees]);
     }
 
     public function update(Request $request, Book $book)
@@ -109,12 +114,23 @@ class BookController extends Controller
 
         Book::where('id', $book->id)->update($request->except('_token', '_method'));
 
-        return redirect()->route('books.show', $book->id);
+        $notificacion = array(
+            'message' => 'Gracias! El libro a sido modificado correctamente.',
+            'alert-type' => 'info'
+        );
+
+        return redirect()->route('books.show', $book->id)->with($notificacion);
     }
 
     public function destroy(Book $book)
     {
         $book->delete();
-        return redirect()->route('books.index');
+
+        $notificacion = array(
+            'message' => 'El libro a sido Eliminado correctamente.',
+            'alert-type' => 'warning'
+        );
+
+        return redirect()->route('books.index')->with($notificacion);
     }
 }

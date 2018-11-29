@@ -14,7 +14,7 @@
                 <li><span>Dashboard / Carreras / Mostrar / {{$degree->id}}</span></li>
             </ol>
 
-            <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
+            <a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
         </div>
     </header>
 
@@ -34,17 +34,19 @@
                             </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>{{ $degree->division->id }}</td>
-                                    <td>{{ $degree->division->name }}</td>
-                                </tr>
+                            <tr>
+                                <td>{{ $degree->division->id }}</td>
+                                <td>{{ $degree->division->name }}</td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </section>
             <a href="{{ route('degrees.index') }}">
-                <button type="button" class="mb-xs mt-xs mr-xs btn btn-success btn-block"><i class="fa fa-angle-double-left"></i> Regresar</button>
+                <button type="button" class="mb-xs mt-xs mr-xs btn btn-success btn-block"><i
+                            class="fa fa-angle-double-left"></i> Regresar
+                </button>
             </a>
         </div>
     </div>

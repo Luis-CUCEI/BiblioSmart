@@ -18,7 +18,7 @@
                 @endif
             </ol>
 
-            <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
+            <a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
         </div>
     </header>
 
@@ -58,14 +58,14 @@
                         </div>
                     </div>
 
-                        @if(!isset($student))
-                            <div class="form-group">
-                                {!! Form::label('password', 'Contraseña: ', ['class'=>'col-md-3 control-label']) !!}
+                    @if(!isset($student))
+                        <div class="form-group">
+                            {!! Form::label('password', 'Contraseña: ', ['class'=>'col-md-3 control-label']) !!}
                             <div class="col-md-6">
                                 {!! Form::password('password', ['class'=>'form-control input-rounded', 'placeholder'=>'Ingresa la contraseña del estudiante.']) !!}
                             </div>
-                            </div>
-                        @endif
+                        </div>
+                    @endif
 
                     <div class="form-group">
                         {!! Form::label('email', 'Correo: ', ['class'=>'col-md-3 control-label']) !!}
@@ -88,12 +88,12 @@
                         </div>
                     </div>
 
-                        <div class="form-group">
-                            {!! Form::label('gender', 'genero: ', ['class'=>'col-md-3 control-label']) !!}
-                            <div class="col-md-6">
-                                {!! Form::select('gender', ['M'=>'Masculino', 'F'=>'Femenino', 'Otro'=>'Otro'], null, ['class'=>'form-control input-rounded']) !!}
-                            </div>
+                    <div class="form-group">
+                        {!! Form::label('gender', 'genero: ', ['class'=>'col-md-3 control-label']) !!}
+                        <div class="col-md-6">
+                            {!! Form::select('gender', ['M'=>'Masculino', 'F'=>'Femenino', 'Otro'=>'Otro'], null, ['class'=>'form-control input-rounded']) !!}
                         </div>
+                    </div>
 
                     <div class="form-group">
                         <div class="col-md-3"></div>

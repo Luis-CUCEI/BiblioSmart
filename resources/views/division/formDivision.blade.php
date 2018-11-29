@@ -18,7 +18,7 @@
                 @endif
             </ol>
 
-            <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
+            <a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
         </div>
     </header>
 

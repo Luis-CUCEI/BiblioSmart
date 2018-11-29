@@ -18,7 +18,7 @@
                 @endif
             </ol>
 
-            <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
+            <a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
         </div>
     </header>
 
@@ -51,87 +51,87 @@
                         </div>
                     </div>
 
-                        <div class="form-group">
-                            {!! Form::label('n_system', 'Numero de Sistema: ', ['class'=>'col-md-3 control-label']) !!}
-                            <div class="col-md-6">
-                                {!! Form::text('n_system', null, ['class'=>'form-control input-rounded', 'placeholder'=>'Ingresa Numero de Sistema.']) !!}
-                            </div>
+                    <div class="form-group">
+                        {!! Form::label('n_system', 'Numero de Sistema: ', ['class'=>'col-md-3 control-label']) !!}
+                        <div class="col-md-6">
+                            {!! Form::text('n_system', null, ['class'=>'form-control input-rounded', 'placeholder'=>'Ingresa Numero de Sistema.']) !!}
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            {!! Form::label('isbn', 'ISBN: ', ['class'=>'col-md-3 control-label']) !!}
-                            <div class="col-md-6">
-                                {!! Form::text('isbn', null, ['class'=>'form-control input-rounded', 'placeholder'=>'Ingresa ISBN.']) !!}
-                            </div>
+                    <div class="form-group">
+                        {!! Form::label('isbn', 'ISBN: ', ['class'=>'col-md-3 control-label']) !!}
+                        <div class="col-md-6">
+                            {!! Form::text('isbn', null, ['class'=>'form-control input-rounded', 'placeholder'=>'Ingresa ISBN.']) !!}
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            {!! Form::label('pages', 'Paginas: ', ['class'=>'col-md-3 control-label']) !!}
-                            <div class="col-md-6">
-                                {!! Form::text('pages', null, ['class'=>'form-control input-rounded', 'placeholder'=>'Ingresa Numero de Paginas.']) !!}
-                            </div>
+                    <div class="form-group">
+                        {!! Form::label('pages', 'Paginas: ', ['class'=>'col-md-3 control-label']) !!}
+                        <div class="col-md-6">
+                            {!! Form::text('pages', null, ['class'=>'form-control input-rounded', 'placeholder'=>'Ingresa Numero de Paginas.']) !!}
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            {!! Form::label('author', 'Autor: ', ['class'=>'col-md-3 control-label']) !!}
-                            <div class="col-md-6">
-                                {!! Form::text('author', null, ['class'=>'form-control input-rounded', 'placeholder'=>'Ingresa nombre del autor']) !!}
-                            </div>
+                    <div class="form-group">
+                        {!! Form::label('author', 'Autor: ', ['class'=>'col-md-3 control-label']) !!}
+                        <div class="col-md-6">
+                            {!! Form::text('author', null, ['class'=>'form-control input-rounded', 'placeholder'=>'Ingresa nombre del autor']) !!}
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            {!! Form::label('theme', 'Tema: ', ['class'=>'col-md-3 control-label']) !!}
-                            <div class="col-md-6">
-                                {!! Form::text('theme', null, ['class'=>'form-control input-rounded', 'placeholder'=>'Ingresa Tema del libro.']) !!}
-                            </div>
+                    <div class="form-group">
+                        {!! Form::label('theme', 'Tema: ', ['class'=>'col-md-3 control-label']) !!}
+                        <div class="col-md-6">
+                            {!! Form::text('theme', null, ['class'=>'form-control input-rounded', 'placeholder'=>'Ingresa Tema del libro.']) !!}
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            {!! Form::label('copies', 'Numero de Existencias: ', ['class'=>'col-md-3 control-label']) !!}
-                            <div class="col-md-6">
-                                {!! Form::text('copies', null, ['class'=>'form-control input-rounded', 'placeholder'=>'Ingresa numero de Existencias.']) !!}
-                            </div>
+                    <div class="form-group">
+                        {!! Form::label('copies', 'Numero de Existencias: ', ['class'=>'col-md-3 control-label']) !!}
+                        <div class="col-md-6">
+                            {!! Form::text('copies', null, ['class'=>'form-control input-rounded', 'placeholder'=>'Ingresa numero de Existencias.']) !!}
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            {!! Form::label('bar_code', 'Codigo de barras: ', ['class'=>'col-md-3 control-label']) !!}
-                            <div class="col-md-6">
-                                {!! Form::text('bar_code', null, ['class'=>'form-control input-rounded', 'placeholder'=>'Ingresa Codigo de barras.']) !!}
-                            </div>
+                    <div class="form-group">
+                        {!! Form::label('bar_code', 'Codigo de barras: ', ['class'=>'col-md-3 control-label']) !!}
+                        <div class="col-md-6">
+                            {!! Form::text('bar_code', null, ['class'=>'form-control input-rounded', 'placeholder'=>'Ingresa Codigo de barras.']) !!}
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            {!! Form::label('classification', 'Clasificacion: ', ['class'=>'col-md-3 control-label']) !!}
-                            <div class="col-md-6">
-                                {!! Form::text('classification', null, ['class'=>'form-control input-rounded', 'placeholder'=>'Ingresa Clasificacion.']) !!}
-                            </div>
+                    <div class="form-group">
+                        {!! Form::label('classification', 'Clasificacion: ', ['class'=>'col-md-3 control-label']) !!}
+                        <div class="col-md-6">
+                            {!! Form::text('classification', null, ['class'=>'form-control input-rounded', 'placeholder'=>'Ingresa Clasificacion.']) !!}
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            {!! Form::label('division_id', 'Division: ', ['class'=>'col-md-3 control-label']) !!}
-                            <div class="col-md-6">
-                                {!! Form::select('division_id', [0=>'<-- Selecciona una division -->']+$divisions, null, ['class'=>'form-control input-rounded']) !!}
-                            </div>
+                    <div class="form-group">
+                        {!! Form::label('division_id', 'Division: ', ['class'=>'col-md-3 control-label']) !!}
+                        <div class="col-md-6">
+                            {!! Form::select('division_id', [0=>'<-- Selecciona una division -->']+$divisions, null, ['class'=>'form-control input-rounded']) !!}
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            {!! Form::label('degree_id', 'Carrera: ', ['class'=>'col-md-3 control-label']) !!}
-                            <div class="col-md-6">
-                                {!! Form::select('degree_id', [0=>'<-- Selecciona una carrera -->']+$degrees, null, ['class'=>'form-control input-rounded']) !!}
-                            </div>
+                    <div class="form-group">
+                        {!! Form::label('degree_id', 'Carrera: ', ['class'=>'col-md-3 control-label']) !!}
+                        <div class="col-md-6">
+                            {!! Form::select('degree_id', [0=>'<-- Selecciona una carrera -->']+$degrees, null, ['class'=>'form-control input-rounded']) !!}
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <div class="col-md-3"></div>
-                            <div class="col-md-6">
-                                {!! Form::token() !!}
-                                @if(isset($book))
-                                    {!! Form::submit('Actualizar Libro', ['class'=>'btn btn-warning btn-block']) !!}
-                                @else
-                                    {!! Form::submit('Registrar Libro', ['class'=>'btn btn-success btn-block']) !!}
-                                @endif
-                            </div>
+                    <div class="form-group">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            {!! Form::token() !!}
+                            @if(isset($book))
+                                {!! Form::submit('Actualizar Libro', ['class'=>'btn btn-warning btn-block']) !!}
+                            @else
+                                {!! Form::submit('Registrar Libro', ['class'=>'btn btn-success btn-block']) !!}
+                            @endif
                         </div>
+                    </div>
 
                     {!! Form::close() !!}
                 </div>

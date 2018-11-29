@@ -1,4 +1,3 @@
-
 <!-- start: sidebar -->
 <aside id="sidebar-left" class="sidebar-left">
 
@@ -6,7 +5,8 @@
         <div class="sidebar-title">
             Navegacion
         </div>
-        <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+        <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html"
+             data-fire-event="sidebar-left-toggle">
             <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
         </div>
     </div>
@@ -106,13 +106,13 @@
                 </ul>
             </nav>
 
-            <hr class="separator" />
+            <hr class="separator"/>
 
             <div class="sidebar-widget widget-tasks">
 
             </div>
 
-            <hr class="separator" />
+            <hr class="separator"/>
 
             <div class="sidebar-widget widget-stats">
 

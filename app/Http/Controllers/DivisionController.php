@@ -31,23 +31,29 @@ class DivisionController extends Controller
     public function store(Request $request)
     {
         $rules = [
-          'name' => 'required|min:5',
+            'name' => 'required|min:5',
         ];
 
         $messages = [
-          'name.required' => 'Agrega el nombre de la division para continuar.',
+            'name.required' => 'Agrega el nombre de la division para continuar.',
         ];
 
         $this->validate($request, $rules, $messages);
 
         Division::create($request->all());
-        return redirect()->route('divisions.index');
+
+        $notificacion = array(
+            'message' => 'Gracias! La division a sido creada correctamente.',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('divisions.index')->with($notificacion);
     }
 
 
     public function show(Division $division)
     {
-        return view('division.showDivision')->with(['division'=> $division,]);
+        return view('division.showDivision')->with(['division' => $division,]);
     }
 
     public function edit(Division $division)
@@ -71,12 +77,24 @@ class DivisionController extends Controller
         $this->validate($request, $rules, $messages);
 
         Division::where('id', $division->id)->update($request->except('_token', '_method', 'token'));
-        return redirect()->route('divisions.show', $division->id);
+
+        $notificacion = array(
+            'message' => 'Gracias! La division a sido modificada correctamente.',
+            'alert-type' => 'info'
+        );
+
+        return redirect()->route('divisions.show', $division->id)->with($notificacion);
     }
 
     public function destroy(Division $division)
     {
         $division->delete();
-        return redirect()->route('divisions.index');
+
+        $notificacion = array(
+            'message' => 'La division a sido eliminada correctamente.',
+            'alert-type' => 'warning'
+        );
+
+        return redirect()->route('divisions.index')->with($notificacion);
     }
 }

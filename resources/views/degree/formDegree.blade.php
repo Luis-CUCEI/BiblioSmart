@@ -18,7 +18,7 @@
                 @endif
             </ol>
 
-            <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
+            <a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
         </div>
     </header>
 
@@ -51,24 +51,24 @@
                         </div>
                     </div>
 
-                        <div class="form-group">
-                            {!! Form::label('division_id', 'Division: ', ['class'=>'col-md-3 control-label']) !!}
-                            <div class="col-md-6">
-                                {!! Form::select('division_id', [0=>'<-- Selecciona una division -->']+$divisions, null, ['class'=>'form-control input-rounded']) !!}
-                            </div>
+                    <div class="form-group">
+                        {!! Form::label('division_id', 'Division: ', ['class'=>'col-md-3 control-label']) !!}
+                        <div class="col-md-6">
+                            {!! Form::select('division_id', [0=>'<-- Selecciona una division -->']+$divisions, null, ['class'=>'form-control input-rounded']) !!}
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <div class="col-md-3"></div>
-                            <div class="col-md-6">
-                                {!! Form::token() !!}
-                                @if(isset($degree))
-                                    {!! Form::submit('Actualizar Carrera', ['class'=>'btn btn-warning btn-block']) !!}
-                                @else
-                                    {!! Form::submit('Registrar Carrera', ['class'=>'btn btn-success btn-block']) !!}
-                                @endif
-                            </div>
+                    <div class="form-group">
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            {!! Form::token() !!}
+                            @if(isset($degree))
+                                {!! Form::submit('Actualizar Carrera', ['class'=>'btn btn-warning btn-block']) !!}
+                            @else
+                                {!! Form::submit('Registrar Carrera', ['class'=>'btn btn-success btn-block']) !!}
+                            @endif
                         </div>
+                    </div>
 
                     {!! Form::close() !!}
                 </div>

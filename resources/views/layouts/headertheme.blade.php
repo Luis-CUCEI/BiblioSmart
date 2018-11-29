@@ -1,11 +1,11 @@
-
 <!-- start: header -->
 <header class="header">
     <div class="logo-container">
         <a href="../" class="logo">
-            <img src="{{ asset('img/index/core-img/logo2.png') }}" height="35" alt="BiblioSmart Admin" />
+            <img src="{{ asset('img/index/core-img/logo2.png') }}" height="35" alt="BiblioSmart Admin"/>
         </a>
-        <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+        <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html"
+             data-fire-event="sidebar-left-opened">
             <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
         </div>
     </div>
@@ -21,7 +21,8 @@
         <div id="userbox" class="userbox">
             <a href="#" data-toggle="dropdown">
                 <figure class="profile-picture">
-                    <img src="{{ asset('img/sign/avatar.png') }}" alt="Joseph Doe" class="img-circle" data-lock-picture="assets/images/!logged-user.jpg" />
+                    <img src="{{ asset('img/sign/avatar.png') }}" alt="Joseph Doe" class="img-circle"
+                         data-lock-picture="assets/images/!logged-user.jpg"/>
                 </figure>
                 <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@JSOFT.com">
                     <span class="name">{{ Auth::user()->name }}</span>

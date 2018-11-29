@@ -14,13 +14,13 @@
                 <li><span>Dashboard / Estudiante / Mostrar / {{$student->id}}</span></li>
             </ol>
 
-            <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
+            <a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
         </div>
     </header>
 
     <div class="row">
         <div class="col-lg-12">
-            <section class="panel panel-featured panel-featured-success">
+            <section class="panel panel-featured panel-featured-primary">
                 <header class="panel-heading">
                     <h2 class="panel-title"> Estudiante - {{$student->fisrtname}} {{$student->lastname}} </h2>
                 </header>
@@ -89,7 +89,9 @@
                 </div>
             </section>
             <a href="{{ route('students.index') }}">
-                <button type="button" class="mb-xs mt-xs mr-xs btn btn-success btn-block"><i class="fa fa-angle-double-left"></i> Regresar</button>
+                <button type="button" class="mb-xs mt-xs mr-xs btn btn-primary btn-block"><i
+                            class="fa fa-angle-double-left"></i> Regresar
+                </button>
             </a>
         </div>
     </div>

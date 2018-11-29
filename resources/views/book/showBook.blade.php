@@ -14,7 +14,7 @@
                 <li><span>Dashboard / Libros / Mostrar / {{$book->id}}</span></li>
             </ol>
 
-            <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
+            <a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
         </div>
     </header>
 
@@ -26,65 +26,65 @@
                 </header>
                 <div class="panel-body">
                     {!! Form::model($book, ['route'=>['books.index'], 'method'=>'get', 'class'=>'form-horizontal form-bordered' ]) !!}
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Numero de Sistema</label>
-                            <div class="col-md-6">
-                                <div class="input-group input-group-icon">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Numero de Sistema</label>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-icon">
                                     <span class="input-group-addon">
                                         <span class="icon"><i class="fa fa-info"></i></span>
                                     </span>
-                                    {!! Form::text('n_system', null, ['class'=>'form-control input-rounded', 'readonly'=>'readonly']) !!}
-                                </div>
+                                {!! Form::text('n_system', null, ['class'=>'form-control input-rounded', 'readonly'=>'readonly']) !!}
                             </div>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">ISBN</label>
-                            <div class="col-md-6">
-                                <div class="input-group input-group-icon">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">ISBN</label>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-icon">
                                     <span class="input-group-addon">
                                         <span class="icon"><i class="fa fa-info"></i></span>
                                     </span>
-                                    {!! Form::text('isbn', null, ['class'=>'form-control input-rounded', 'readonly'=>'readonly']) !!}
-                                </div>
+                                {!! Form::text('isbn', null, ['class'=>'form-control input-rounded', 'readonly'=>'readonly']) !!}
                             </div>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Paginas</label>
-                            <div class="col-md-6">
-                                <div class="input-group input-group-icon">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Paginas</label>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-icon">
                                     <span class="input-group-addon">
                                         <span class="icon"><i class="fa fa-info"></i></span>
                                     </span>
-                                    {!! Form::text('pages', null, ['class'=>'form-control input-rounded', 'readonly'=>'readonly']) !!}
-                                </div>
+                                {!! Form::text('pages', null, ['class'=>'form-control input-rounded', 'readonly'=>'readonly']) !!}
                             </div>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Autor</label>
-                            <div class="col-md-6">
-                                <div class="input-group input-group-icon">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Autor</label>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-icon">
                                     <span class="input-group-addon">
                                         <span class="icon"><i class="fa fa-info"></i></span>
                                     </span>
-                                    {!! Form::text('author', null, ['class'=>'form-control input-rounded', 'readonly'=>'readonly']) !!}
-                                </div>
+                                {!! Form::text('author', null, ['class'=>'form-control input-rounded', 'readonly'=>'readonly']) !!}
                             </div>
                         </div>
+                    </div>
 
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Tema</label>
-                            <div class="col-md-6">
-                                <div class="input-group input-group-icon">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Tema</label>
+                        <div class="col-md-6">
+                            <div class="input-group input-group-icon">
                                     <span class="input-group-addon">
                                         <span class="icon"><i class="fa fa-info"></i></span>
                                     </span>
-                                    {!! Form::text('theme', null, ['class'=>'form-control input-rounded', 'readonly'=>'readonly']) !!}
-                                </div>
+                                {!! Form::text('theme', null, ['class'=>'form-control input-rounded', 'readonly'=>'readonly']) !!}
                             </div>
                         </div>
+                    </div>
 
                     <div class="form-group">
                         <label class="col-md-3 control-label">Existencias</label>
@@ -148,8 +148,10 @@
                     </form>
                 </div>
             </section>
-            <a href="{{ route('degrees.index') }}">
-                <button type="button" class="mb-xs mt-xs mr-xs btn btn-success btn-block"><i class="fa fa-angle-double-left"></i> Regresar</button>
+            <a href="{{ route('books.index') }}">
+                <button type="button" class="mb-xs mt-xs mr-xs btn btn-success btn-block"><i
+                            class="fa fa-angle-double-left"></i> Regresar
+                </button>
             </a>
         </div>
     </div>

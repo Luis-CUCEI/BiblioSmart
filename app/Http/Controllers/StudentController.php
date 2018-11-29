@@ -26,7 +26,7 @@ class StudentController extends Controller
 
     public function store(Request $request)
     {
-        $rules =[
+        $rules = [
             'fisrtname' => 'required|',
             'lastname' => 'required|',
             'password' => 'required|',
@@ -51,22 +51,28 @@ class StudentController extends Controller
         $this->validate($request, $rules, $messages);
 
         Student::create($request->all());
-        return redirect()->route('students.index');
+
+        $notificacion = array(
+            'message' => 'Gracias! El estudiante a sido creada correctamente.',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('students.index')->with($notificacion);
     }
 
     public function show(Student $student)
     {
-        return view('student.showStudent')->with(['student'=>$student]);
+        return view('student.showStudent')->with(['student' => $student]);
     }
 
     public function edit(Student $student)
     {
-        return view('student.formStudent')->with(['student'=>$student]);
+        return view('student.formStudent')->with(['student' => $student]);
     }
 
     public function update(Request $request, Student $student)
     {
-        $rules =[
+        $rules = [
             'fisrtname' => 'required|',
             'lastname' => 'required|',
             'email' => "required|unique:students,email,$student->id",
@@ -89,12 +95,23 @@ class StudentController extends Controller
 
         Student::where('id', $student->id)->update($request->except('_token', '_method'));
 
-        return redirect()->route('students.show', $student->id);
+        $notificacion = array(
+            'message' => 'Gracias! El estudiante a sido modificado correctamente.',
+            'alert-type' => 'info'
+        );
+
+        return redirect()->route('students.show', $student->id)->with($notificacion);
     }
 
     public function destroy(Student $student)
     {
         $student->delete();
-        return redirect()->route('students.index');
+
+        $notificacion = array(
+            'message' => 'El estudiante a sido eliminado correctamente.',
+            'alert-type' => 'warning'
+        );
+
+        return redirect()->route('students.index')->with($notificacion);
     }
 }

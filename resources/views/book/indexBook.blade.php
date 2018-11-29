@@ -14,18 +14,21 @@
                 <li><span>Dashboard / Libros / Mostrar</span></li>
             </ol>
 
-            <a class="sidebar-right-toggle" ><i class="fa fa-chevron-left"></i></a>
+            <a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
         </div>
     </header>
 
     <div class="row">
         <div class="col-lg-12">
-            <section class="panel">
+            <section class="panel panel-featured panel-featured-dark">
                 <header class="panel-heading">
                     <h2 class="panel-title"> CUCEI - Libros</h2>
+                    <div class="panel-actions">
+                        <a href="{{ route('books.create') }}" class="fa fa-plus"></a>
+                    </div>
                 </header>
                 <div class="panel-body">
-                    @if(isset($books))
+                    @if($books->count() > 0)
                         <div class="table-responsive">
                             <table class="table table-hover mb-none">
                                 <thead>
@@ -57,24 +60,34 @@
                                         <td>{{ $book->created_at }}</td>
                                         <td class="actions-hover actions-fade">
                                             <a>
-                                                <form action = "{{ route('books.destroy', $book->id) }}" method="POST">
+                                                <form action="{{ route('books.destroy', $book->id) }}" method="POST">
                                                     {{ csrf_field() }}
-                                                    <input type = "hidden" name = "_method" value = "DELETE">
-                                                    <button type="submit" class="mb-xs mt-xs mr-xs btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>Eliminar</button>
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <button type="submit"
+                                                            class="mb-xs mt-xs mr-xs btn btn-danger btn-xs"><i
+                                                                class="fa fa-trash-o"></i>Eliminar
+                                                    </button>
                                                 </form>
                                             </a>
 
                                             <a href="{{ route('books.edit', $book->id) }}">
-                                                <button type="button" class="mb-xs mt-xs mr-xs btn btn-warning btn-xs"><i class="fa fa-pencil"></i>Editar</button>
+                                                <button type="button" class="mb-xs mt-xs mr-xs btn btn-warning btn-xs">
+                                                    <i class="fa fa-pencil"></i>Editar
+                                                </button>
                                             </a>
                                         </td>
-                                    <tr></tr>
+                                    </tr>
                                 @endforeach
                                 </tbody>
                             </table>
                         </div>
                     @else
-                        <h2>NO Existen Libros</h2>
+                        <div class="alert alert-dark">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                            <strong>Sin Libros</strong> Por favor, agrega algunos para continuar! <a
+                                    href="{{ route('books.create') }}" class="alert-link"> Agregar Libros o pulsa la
+                                cruz que se encuentra arriba</a>.
+                        </div>
                     @endif
                 </div>
             </section>
