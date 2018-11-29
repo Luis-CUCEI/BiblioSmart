@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Book;
 use App\Student;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class StudentController extends Controller
 {
@@ -62,7 +63,8 @@ class StudentController extends Controller
 
     public function show(Student $student)
     {
-        return view('student.showStudent')->with(['student' => $student]);
+        $books_list = Book::all()->pluck('tittle', 'id')->toArray();
+        return view('student.showStudent')->with(['student' => $student, 'books_list'=>$books_list]);
     }
 
     public function edit(Student $student)
@@ -113,5 +115,13 @@ class StudentController extends Controller
         );
 
         return redirect()->route('students.index')->with($notificacion);
+    }
+
+    public function addBook(Request $request)
+    {
+        $book = Book::find($request->book_id);
+        $book->students()->attach($request->student_id, ['school_cycle' => $request->school_cycle, 'delivery_at' => $request->delivery_at, 'delivery'=>0, 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()]);
+
+        return redirect()->route('students.show', $request->student_id);
     }
 }

@@ -7,10 +7,9 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index');
 Route::get('dashboard', 'UserController@index')->name('dashboard');
-Route::get('degree/trash', 'DegreeController@trash')->name('degrees.trash');
-Route::post('degree/retrieve', 'DegreeController@retrieve')->name('degrees.retrieve');
-
-
+Route::get('degrees/trash', 'DegreeController@trash')->name('degrees.trash');
+Route::post('degrees/retrieve', 'DegreeController@retrieve')->name('degrees.retrieve');
+Route::post('students/addbook', 'StudentController@addBook')->name('students.addbook');
 
 Route::resource('divisions', 'DivisionController');
 Route::resource('degrees', 'DegreeController');

@@ -113,7 +113,8 @@
                                     pulsa la
                                     cruz que se encuentra arriba</a>.
                             </div>
-                        @else
+                        @endif
+                        @if(isset($tdegrees))
                             <div class="alert alert-dark">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                 <strong>Sin Carreras</strong> Por favor, borra algunas para continuar! <a
