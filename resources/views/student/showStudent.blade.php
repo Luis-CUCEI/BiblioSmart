@@ -138,7 +138,7 @@
                 <div class="col-lg-12">
                     <section class="panel panel-featured panel-warning">
                         <header class="panel-heading">
-                            <h2 class="panel-title"> Mis Libros {{$student->fisrtname}} {{$student->lastname}} </h2>
+                            <h2 class="panel-title"> Mis Libros {{$student->full_name}} </h2>
                         </header>
                         <div class="panel-body">
                             @if(isset($student->books))
